@@ -22,4 +22,41 @@ class Postcontroler extends Controller
 
      return view('Posts.schow', ['post'=>$singlePost]);
    }
+
+   public function Create(){
+
+     
+      return view('Posts.create');
+   }
+
+   public function store(){
+      $data = request()->all();
+      $title= request()->title;
+      $descreption= request()->descreption;
+      $postcreator= request()->post_creator;
+
+      // - store the user datat in database
+
+
+      return to_route(route:'posts.index');
+   }
+   public function edit(){
+
+       return view('Posts.edit');
+   }
+
+   public function update(){
+      $title = request()->title;
+      $descreption= request()->descreption;
+      $postcreator= request()->post_creator;
+     
+
+      return to_route(route :'posts.schow' , parameters:1);
+
+
+   }
+   public function destroy(){
+    return 'haaaaalo';
+
+   }
 }
